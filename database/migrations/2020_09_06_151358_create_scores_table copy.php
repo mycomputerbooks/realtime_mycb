@@ -17,10 +17,10 @@ class CreateScoresTable extends Migration
             $table->id();
             $table->integer('user_id')->unsigned();
             $table->integer('category_id')->unsigned();
+            $table->timestamps();
             $table->string('slug');
             $table->boolean('active');
             $table->string('startTime');
-            $table->timestamps();
             $table->integer('game01OrigTypingPts');
             $table->integer('game01AddTypingPts');
             $table->integer('game01Typing');
