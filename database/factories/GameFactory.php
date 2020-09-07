@@ -2,12 +2,13 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Model\Question;
+use App\Model\Game;
 use Faker\Generator as Faker;
 
-$factory->define(Question::class, function (Faker $faker) {
-    $title = $faker->sentence;
+$factory->define(Game::class, function (Faker $faker) {
     return [
         'title' => $faker->sentence(),
+        'slug' => str_slug($title),
+        'body' => $faker->text,
     ];
 });
