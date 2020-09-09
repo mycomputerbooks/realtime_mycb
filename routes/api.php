@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('/question', 'QuestionController');
 Route::apiResource('/game', 'GameController');
+Route::apiResource('/category', 'CategoryController');
