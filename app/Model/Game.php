@@ -8,6 +8,11 @@ use App\User;
 
 class Game extends Model
 {
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
@@ -16,5 +21,10 @@ class Game extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function getPathAttribute()
+    {
+        return asset("api/game/$this->slug");
     }
 }

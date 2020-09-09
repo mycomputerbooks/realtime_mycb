@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Game;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+use App\Http\Resources\GameResource;
 
 class GameController extends Controller
 {
@@ -14,7 +16,8 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        return  GameResource::collection(Game::latest()->get());
+        //return  GameResource::collection(Game::latest()->paginate(1));
     }
 
     /**
@@ -46,7 +49,7 @@ class GameController extends Controller
      */
     public function show(Game $game)
     {
-        //
+        return new GameResource($game);
     }
 
     /**
@@ -80,6 +83,7 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        //
+        $game->delete();
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }
