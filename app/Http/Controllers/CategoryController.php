@@ -39,7 +39,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        // Category::create($request->all());
+        // Category::create($request->all());  can also do this but have to modify slug
         $category = new Category;
         $category->name = $request->name;
         $category->slug = Str::slug($request->name);
